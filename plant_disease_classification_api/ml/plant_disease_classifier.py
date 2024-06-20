@@ -7,8 +7,8 @@ from torch.autograd import Variable
 from PIL import Image
 from io import BytesIO
 from typing import Optional
-from plant_disease_classification_api.ml.network import CNN
-from plant_disease_classification_api.ml import constant
+from network import CNN
+import constant
 
 
 # CPU or GPU
