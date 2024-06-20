@@ -5,8 +5,8 @@ import base64
 
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-from plant_disease_classification_api.models import ClassficationRequestItem
-from plant_disease_classification_api.ml.plant_disease_classifier import (
+from models import ClassficationRequestItem
+from ml.plant_disease_classifier import (
     PlantDiseaseClassifier,
 )
 
@@ -46,3 +46,5 @@ async def classify(requestItem: ClassficationRequestItem):
         return {"result": result}
     else:
         return {"error": "ML Model not found!"}
+
+uvicorn.run(app, port=8000)
