@@ -7,9 +7,10 @@ from torch.autograd import Variable
 from PIL import Image
 from io import BytesIO
 from typing import Optional
-from network import CNN
+import network
 import constant
 
+n = network.CNN()
 
 # CPU or GPU
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -36,7 +37,7 @@ class PlantDiseaseClassifier(object):
             print("Provide a path to trained model!")
 
     def __load_model(self, path: str):
-        self.model = CNN()
+        self.model = n()
         self.model.load_state_dict(torch.load(path, map_location=DEVICE))
         self.model.eval()
 

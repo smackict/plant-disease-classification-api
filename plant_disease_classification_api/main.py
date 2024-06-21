@@ -2,14 +2,11 @@
 
 import os
 import base64
-
+import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from models import ClassficationRequestItem
-from ml.plant_disease_classifier import (
-    PlantDiseaseClassifier,
-)
-
+from ml.module import PlantDiseaseClassifier,CNN
 
 app = FastAPI()
 
